@@ -1,0 +1,51 @@
+#signupform{
+    height:50px;
+    width:380px;
+    margin-right:200px;
+    background-color: #f6f8fa;
+    padding:0px 50px 500px 45px;
+    margin-top: :200px;
+
+    }
+ input{
+ 	margin:0;
+ 	width:100%;
+ 	height:50px;
+ 	margin-top:15px;
+ }
+.abc{
+	line-height:1px;
+	text-align:left;
+	font-color:blue;
+	text-decoration-line: none;
+
+}
+.def{
+	line-height:1px;
+	text-align:left;
+	font-color:blue;
+	text-decoration-line: none;
+}
+.account{
+	line-height:1px;
+	text-align:left;
+	font-color:blue;
+	text-decoration-line: none;
+}
+button{
+	width:30%;
+	height:50px;
+	color: #ffffff;
+	border:none;
+	font-size:15px;
+	font-weight:100;
+	background-color:blue;
+	margin-bottom:150px;
+	margin-top: 15px;
+	float:right;
+    border-radius: 10px;
+
+}
+.right{
+	margin-top: 1px;
+}

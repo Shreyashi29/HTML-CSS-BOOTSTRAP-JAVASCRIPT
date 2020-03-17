@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+
+<body>
+
+    <div>
+        Number1: <input type="text" id="number" name="TableNumber"><br><br>
+        <button type="button" onclick="multiply()">Multiplication</button>
+        <h3 id="banner"></h3>
+    </div>
+
+    <script>
+
+        function multiply() {
+            var text = "";
+            var Number = document.getElementById("number").value;
+            var T;
+            
+
+            for (T = 1; T <= 10; T++) {
+
+
+                text += Number + "*" + T + "=" + Number * T + "<br>";
+
+            }
+
+
+            document.getElementById("banner").innerHTML = text;
+        }
+    </script>

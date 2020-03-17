@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3 bg-white">
+                <form action="" name="demoForm">
+                    <div class="form-group">
+                        <label for="name">Username</label>
+                        <input type="text" name="name" id="userName" class="form-control"
+                            placeholder="Please provide a username." onblur="checkName()" />
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date_Of_Birth</label>
+                        <input type="text" name="dob" id="dob" class="form-control"
+                            placeholder="Please provide your Date Of Birth." />
+                        <button type="button" onclick="age()">Age_Check</button>
+                    </div>
+                </form>
+                <script>
+                    function checkName() {
+                        var userName = document.demoForm.userName.value;
+
+                        var expression = /^[A-Za-z ]+$/
+
+                        if (expression.test(userName)) {
+                            console.log('Valid name')
+
+                        } else {
+                            console.log('invalid name....')
+                            alert("Invalid Name")
+                        }
+                        if (expression == "") {
+                            alert("Please Enter Your Name");
+                        }
+
+                    }
+
+                    function age() {
+                        var a = document.demoForm.userName.value;
+                        console.log(a)
+                        if (a == "") {
+                            alert("Please Enter Your Name");
+                            document.form.name.focus();
+                            return false;
+                        }
+                        if (!isNaN(a)) {
+                            alert("Please Enter Only Characters");
+                            document.form.name.select();
+                            return false;
+                        }
+                    }
+                    function validatedate(inputText) {
+                        var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+                        // Match the date format through regular expression
+                        if (inputText.value.match(dateformat)) {
+                            document.form1.text1.focus();
+                            //Test which seperator is used '/' or '-'
+                            var opera1 = inputText.value.split('/');
+                            var opera2 = inputText.value.split('-');
+                            lopera1 = opera1.length;
+                            lopera2 = opera2.length;
+                            // Extract the string into month, date and year
+                            if (lopera1 > 1) {
+                                var pdate = inputText.value.split('/');
+                            }
+                            else if (lopera2 > 1) {
+                                var pdate = inputText.value.split('-');
+                            }
+                            var dd = parseInt(pdate[0]);
+                            var mm = parseInt(pdate[1]);
+                            var yy = parseInt(pdate[2]);
+                            // Create list of days of a month [assume there is no leap year by default]
+                            var ListofDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                            if (mm == 1 || mm > 2) {
+                                if (dd > ListofDays[mm - 1]) {
+                                    alert('Invalid date format!');
+                                    return false;
+                                }
+                            }
+                            if (mm == 2) {
+                                var lyear = false;
+                                if ((!(yy % 4) && yy % 100) || !(yy % 400)) {
+                                    lyear = true;
+                                }
+                                if ((lyear == false) && (dd >= 29)) {
+                                    alert('Invalid date format!');
+                                    return false;
+                                }
+                                if ((lyear == true) && (dd > 29)) {
+                                    alert('Invalid date format!');
+                                    return false;
+                                }
+                            }
+                        }
+                        else {
+                            alert("Invalid date format!");
+                            document.form1.text1.focus();
+                            return false;
+                        }
+                    }
+                </script>

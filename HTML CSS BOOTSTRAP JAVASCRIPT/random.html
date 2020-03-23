@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Random Number</title>
+</head>
+
+<body>
+
+    Number: <input type="text" name="int" id="int"><br><br>
+    <h3 id="random"></h3>
+    <h3 id="result"></h3>
+    <button type="button" onclick="number()">Check</button>
+     <script>
+          function number()
+          {
+              document.getElementById.innerHTML=Math.floor(Math.random()*10) +1;
+              var a= document.getElementById("random").value;
+              if(a== document.getElementById("int").value)
+              {
+                document.getElementById("result").innerHTML=" Good work";
+              }
+              else{
+                document.getElementById("result").innerHTML=" Not matched";
+              }
+          }
+     </script>
+    </body>
+    </html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Student Database</title>
+    
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                
+                <form name="form1" style="border-radius: 20px; background-color: lightgrey; padding-left: 30px;padding-right: 30px;padding-bottom: 40px;padding-top: 20px;margin-top: 10px;" >
+                    <h3 style="font-family: 'Times New Roman', Times, serif; margin-top: 20px;padding-left: 190px;">Student Details</h3><br>
+                    <div class="form-group">
+                        <label for="id"><b>Id</b></label>
+                        <input type="id" class="form-control" id="id"  placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName"><b>First Name</b></label>
+                        <input type="text" class="form-control" id="firstName" placeholder="" onblur="checkFirst()">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName"><b>Last Name</b></label>
+                        <input type="text" class="form-control" id="lastName" placeholder="" onblur="checkLast()">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1"><b>Email address</b></label>
+                        <input type="email" class="form-control" id="email" placeholder="">
+                        
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-primary" onclick="addStudents()">Submit</button>
+                    <button type="button" id="custom" class="btn btn-success" onclick="updateRecord()" disabled >Update</button>
+                    <button type="button" id="custom" class="btn btn-info" onclick="reset()">Reset</button>
+
+
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <h3 style="font-family: 'Times New Roman', Times, serif; padding-left: 190px; margin-top: 20px; margin-bottom: 20px;"> Student Records</h3>
+                
+                <div class="form-group">
+                    <input type="search" class="form-control" id="search" placeholder="Search by name or id" onkeyup="search()">                   
+                </div>
+                
+                <table id="studentsTable" style="overflow-x: scroll;" class="table table-dark table-striped">
+                    <thead class="thead">
+                        <tr>
+                            <th scope="col">#Id</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+               
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="stu.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+

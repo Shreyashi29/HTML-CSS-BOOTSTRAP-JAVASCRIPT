@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bookies</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body style="background-image: url(book2.jpg);">
+    <!-- navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light  sticky-top shadow " style="background-image: url(unnamed.jpg);">
+        <div class="container ">
+            <h1 class="navbar-brand text-white font-weight-bold" style="font-size: x-large;" >
+                Bookies
+            </h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" style="padding-left: 60px;">About<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="#" style="padding-left: 40px;">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" onclick="viewCart()" style="padding-left: 40px;">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                      <p class="nav-link text-white"  style="padding-left: 40px;">Contact Us: 9163893147</p>
+                  </li>
+                </ul>
+                <form class="form-inline my-1 my-lg-0">
+                    <a class="nav-link" onclick="viewCart()"><i class="fa fa-shopping-cart text-white" style="font-size:24px"></i></a>
+                    <span id="count" class="badge text-white">0</span>
+                </form>
+                <a href="#" class="btn btn-danger btn-rounded" style="margin-left: 70px;">Sign up!</a>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+  
+    <div id="bookdynamic" class="container col-8 pt-4" >
+        <div class="row p-4">
+            <div class="col-12 bg-success p-3 text-inline">
+                <i class="fa fa-book text-white" style="font-size:30px"></i>
+                <span style="color:darkblue; font-weight: bolder; font-size: x-large;"> &nbsp; Books...</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalTitle">Book Name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="ModalBody" class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Go Back</button>
+                    <span id="knowMoreFooter"></span> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal fade bd-example-modal-lg" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: lightgreen;">
+                    <i class="fa fa-shopping-cart" style="font-size:30px"></i>
+                <span class="text-dark" style="font-weight: bolder; font-size: x-large;"> &nbsp; My Cart</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="cartModalBody" class="modal-body">
+                    <div class="row p-4">
+                        <div class="col-12" style="max-height: 400px; overflow: auto">
+                            <table class="table table-sm" id="ordersTable">
+                                <thead class="thead">
+                                    
+                                </thead>
+                                <tbody>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row p-4">
+                        
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: lightgreen;">
+                    <span class="text-dark" style="font-size: large;">
+                        &nbsp; Total Amount : ₹ 
+                        <span id="total" class="font-weight-bold">0</span>
+                        &nbsp;
+                    </span>
+                    <button type="button" class="btn btn-primary" onclick="purchase()" data-dismiss="modal">Check Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- cart modal ends-->
+
+
+    <div class="row text-white" style="padding-left: 20px;">
+      <div class="col-12">
+          <h1 class="display-5">About</h1>
+          <p>The site sells books online. There are different categories of books<br> available here. The customers can register for free.</p>
+      </div>
+  </div>
+
+    </div>
+    <script src="bookies.js"></script>
+
+
+</body>
+</html>
